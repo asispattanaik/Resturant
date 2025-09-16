@@ -6,6 +6,8 @@
   <title>Restaurant</title>
   <meta name="description" content="Responsive restaurant landing page replica" />
   <style>
+    /* ---- Fonts ---- */
+
     :root{
       --coral:#ff7272;
       --deep-coral:#f56b67;
@@ -14,76 +16,47 @@
       --max-width:1200px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{font-size:16px}
-    body{
-      font-family:Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background:linear-gradient(90deg,#FFF2B8 10%, #f8d9cb 45%, #FFD0DD 60%);
-      line-height:1.5;
-    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;}
     img{display:block;max-width:100%;height:auto}
 
-    /* ---- nav ---- */
+    body{
+background:linear-gradient(90deg,#FFF2B8 10%, #f8d9cb 45%, #FFD0DD 60%);
+}
+
+    /* ---- top nav ---- */
     .nav{
-      position:sticky;top:0;z-index:100;background:var(--coral);
-      padding:.9rem 1.25rem;backdrop-filter: blur(2px);
+      position:sticky;top:0;z-index:80;background:var(--coral);padding:.9rem 1.25rem;backdrop-filter: blur(2px);
       border-bottom:2px solid rgba(0,0,0,0.06);
     }
-    .nav .wrap{
-      max-width:var(--max-width);margin:0 auto;
-      display:flex;align-items:center;justify-content:space-between;gap:1rem;
-    }
+    .nav .wrap{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     .brand{font-weight:800;letter-spacing:2px}
-    .menu{
-      display:flex;gap:2rem;align-items:center;
-      transition:max-height .4s ease;
-    }
-    .menu a{color:#000;text-decoration:none;font-weight:600;letter-spacing:2px}
-    .hambtn{display:none;width:34px;height:34px;background:none;border:none;cursor:pointer}
+    .menu{display:flex;gap:2rem;align-items:center}
+    .menu a{color:#000;text-decoration:none;font-weight:600;letter-spacing:3px}
+    .hambtn{display:none;width:34px;height:34px}
 
     /* ---- hero ---- */
-    .hero{
-      display:grid;grid-template-columns:1fr 1fr;min-height:70vh;
-      max-width:var(--max-width);margin:1.25rem auto;border-radius:6px;overflow:hidden;
-    }
-    .hero-left{
-      padding:6rem 6vw;
-      background:linear-gradient(90deg,#FFF2B8 0%, #FFD9C9 45%, #FFD0DD 60%);
-      display:flex;flex-direction:column;justify-content:center;
-    }
-    .eyebrow{color:var(--muted);font-weight:600;margin-bottom:1rem}
-    h1{font-size:clamp(2rem,6vw,4.5rem);margin:0 0 1.25rem;font-weight:800;color:#111;letter-spacing:4px}
-    .lead{max-width:48ch;color:#222;line-height:1.8;font-size:clamp(.95rem,2.2vw,1.1rem)}
-    .cta{
-      display:inline-block;margin-top:2.5rem;padding:.9rem 2.2rem;
-      background:var(--deep-coral);color:#fff;border-radius:6px;
-      text-decoration:none;font-weight:700;transition:all .3s;
-    }
-    .cta:hover{background:#e55a55}
-
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:70vh;max-width:var(--max-width);margin:1.25rem auto;border-radius:2px;overflow:hidden}
+.hero-left{padding:6rem 6vw;background:linear-gradient(90deg,#FFF2B8 0%, #FFD9C9 45%, #FFD0DD 60%);display:flex;flex-direction:column;justify-content:center}
+.eyebrow{color:var(--muted);font-weight:600;margin-bottom:1rem}
+h1{font-size:clamp(2rem,6vw,4.5rem);margin:0 0 1.25rem 0;letter-spacing:6px;font-weight:800;color:#111}
+.lead{max-width:48ch;color:#222;line-height:1.8}
+.cta{display:inline-block;margin-top:2.5rem;padding:.9rem 2.2rem;background:var(--deep-coral);color:#fff;border-radius:4px;text-decoration:none;font-weight:700}
     .hero-right{position:relative;overflow:hidden}
     .hero-right .hero-img{width:100%;height:100%;object-fit:cover;display:block}
 
     /* ---- gallery + feature ---- */
-    .section{
-      max-width:var(--max-width);margin:3rem auto;
-      display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:0 1rem;
-    }
+    .section{max-width:var(--max-width);margin:3rem auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:0 1rem}
     .gallery{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
     .gallery .tall{grid-row:span 2;height:100%;min-height:420px}
-    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:2px}
 
-    .feature{
-      align-self:center;padding:2.25rem;
-      background:linear-gradient(180deg, rgba(245,107,103,0.95), rgba(245,107,103,0.95));
-      color:#111;border-radius:6px;
-      display:flex;flex-direction:column;justify-content:center;
-    }
+    .feature{align-self:center;padding:2.25rem;background:linear-gradient(180deg, rgba(245,107,103,0.95), rgba(245,107,103,0.95));color:#111;border-radius:2px;height:50%;display:flex;flex-direction:column;justify-content:center}
     .feature small{color:rgba(0,0,0,0.6);font-weight:600;margin-bottom:.6rem}
-    .feature h2{font-size:clamp(2rem,5vw,3.6rem);margin:0 0 1rem;font-weight:800;color:#0b0b0b}
+    .feature h2{font-size:clamp(2rem,5vw,3.6rem);margin:0 0 1rem 0;letter-spacing:4px;font-weight:800;color:#0b0b0b}
     .feature .link{margin-top:1.25rem;font-weight:600;display:inline-flex;align-items:center;gap:.5rem}
 
-    /* ---- responsive breakpoints ---- */
+    /* ---- responsive ---- */
     @media(max-width:1000px){
       .hero{grid-template-columns:1fr;min-height:60vh}
       .hero-left{padding:4rem 5vw}
@@ -94,22 +67,22 @@
       .feature{order:2;margin-top:1rem}
     }
 
-    @media(max-width:768px){
-      .menu{position:absolute;top:60px;right:0;flex-direction:column;
-            background:var(--coral);width:100%;max-height:0;overflow:hidden;}
-      .menu.show{max-height:400px;padding:1rem 0}
-      .menu a{padding:1rem;font-size:1.05rem;text-align:center}
-      .hambtn{display:block}
-    }
-
     @media(max-width:600px){
+      .nav{padding:.6rem .8rem}
+      .menu{display:none}
+      .hambtn{display:block}
       .hero-left{padding:3rem 4vw}
       .hero-right{height:36vh}
       .gallery{grid-template-columns:1fr}
       .gallery .tall{min-height:220px}
       .feature h2{font-size:2rem}
       .feature{padding:1.25rem}
+      .lead{font-size:.95rem}
     }
+
+    /* ensure text never overflows */
+    h1, h2, .lead, .eyebrow{word-wrap:break-word}
+    .wrap, .hero-left, .feature{min-width:0}
   </style>
 </head>
 <body>
@@ -125,6 +98,7 @@
         <a href="#">Testimonials</a>
         <a href="#">Contact Us</a>
         <a href="#"><img src="6.png" alt="menu icon" style="width:24px;height:24px;object-fit:contain"></a>
+
       </nav>
       <button class="hambtn" aria-label="Menu">
         <img src="6.png" alt="menu" style="width:100%;height:100%;object-fit:contain">
@@ -137,9 +111,10 @@
     <section class="hero" role="region" aria-label="Hero">
       <div class="hero-left">
         <h1>LOREM IPSUM</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id est vitae dolor rhoncus tristique. Maecenas metus quam, rhoncus euismod lorem in, sollicitudin viverra eros. Donec dictum luctus quam ut tristique. Curabitur nec faucibus purus. Quisque congue sem nec justo mollis.</p>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id est vitae dolor rhoncus tristique. Maecenas metus quam,rhoncus euismod lorem in, sollicitudin viverra eros. Donec dictum luctus quam ut tristique. Curabitur nec faucibus purus.Quisque congue sem nec justo mollis, in tincidunt erat pretium.Sed pulvinar, massa ac porta viverra</p>
         <a class="cta" href="#">Click Me</a>
       </div>
+
       <div class="hero-right">
         <img class="hero-img" src="1.jpg" alt="burger and fries">
       </div>
@@ -148,23 +123,33 @@
     <!-- GALLERY + FEATURE -->
     <section class="section" role="region" aria-label="Gallery and Feature">
       <div class="gallery">
-        <img src="4.jpg" alt="street night">
-        <img src="3.jpg" alt="table food" class="tall">
-        <img src="2.jpg" alt="shrimp plate">
+        
+        <img src="4.jpg" alt=" street night">
+        <img src="3.jpg" alt=" table food"height="4" class="tall" >
+        <img src="2.jpg" alt="shrimp plate" >
       </div>
+
       <aside class="feature">
         <small>LOREM IPSUM</small>
         <h2>LOREM IPSUM<br>SET ADEMIR</h2>
         <a class="link" href="#">Click <img src="5.png" alt="arrow" style="width:18px;height:18px;object-fit:contain"></a>
       </aside>
     </section>
+
   </main>
 
   <script>
+   
     const btn = document.querySelector('.hambtn');
     const menu = document.querySelector('.menu');
     btn?.addEventListener('click', ()=>{
-      menu.classList.toggle('show');
+      if(menu.style.display === 'flex') menu.style.display = 'none';
+      else menu.style.display = 'flex';
+    });
+
+
+    window.addEventListener('resize', ()=>{
+      document.documentElement.style.fontSize = '';
     });
   </script>
 </body>
